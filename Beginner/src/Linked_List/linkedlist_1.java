@@ -18,7 +18,7 @@ public class linkedlist_1
             size++;
         }
     }
-    public void  addFirst(String data)
+    public void addFirst(String data)
     {
         Node newNode=new Node(data);
         //System.out.print(head.data+" ");
@@ -30,7 +30,7 @@ public class linkedlist_1
         newNode.next=head;
         head=newNode;
     }
-    public void  addLast(String data)
+    public void addLast(String data)
     {
         Node newNode=new Node(data);
         if(head==null)
@@ -39,8 +39,10 @@ public class linkedlist_1
             return;
         }
         Node currNode=head;
+        //System.out.println(head.data+" "+currNode.data+","+newNode.data);
         while(currNode.next!=null)
         {
+            //System.out.println(head.data+" "+currNode.data+":"+newNode.data);
             currNode=currNode.next;
         }
         currNode.next=newNode;
@@ -55,7 +57,7 @@ public class linkedlist_1
         Node currNode=head;
         while(currNode!=null)
         {
-            System.out.println(currNode.data+"->");
+            System.out.print(currNode.data+"->");
             currNode=currNode.next;
         }
         System.out.println("NULL");
@@ -104,6 +106,10 @@ public class linkedlist_1
         list.addFirst("is");
         list.printList();
         list.addLast("list");
+        list.addLast("good");
+        list.addLast("boy");
+        list.addLast("is");
+        list.addLast("he");
         list.printList();
         list.addFirst("this");
         list.printList();

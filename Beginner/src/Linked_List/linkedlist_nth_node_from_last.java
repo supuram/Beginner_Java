@@ -10,7 +10,7 @@ public class linkedlist_nth_node_from_last
         System.out.println(list);
     }
     public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<Integer>();
+        LinkedList<Integer> list = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < 5; i++) {
             System.out.print("Enter a number = ");
