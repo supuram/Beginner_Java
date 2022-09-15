@@ -1,7 +1,7 @@
-/* Inorder Traversal means first print the left subtree, then print root and then the right subtree */
-public class chk
+package Tree;
+public class Sum_of_Nodes
 {
-    static int ct=0;
+    static int sum=0;
     static class Node
     {
         int data;
@@ -29,20 +29,21 @@ public class chk
             return newNode;
         }
     }
-    public static void inorder(Node root)
+    public static int count(Node root)
     {
         if(root==null)
             return;
-        ct++;
-        inorder(root.left);
-        inorder(root.right);
+        int a=count(root.left);
+        count(root.right);
+        System.out.println(a);
+        return a;
     }
     public static void main(String[] args)
     {
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        inorder(root);
-        System.out.println("Total number of nodes = "+ct);
+        count(root);
+        System.out.println("Total number of nodes = "+sum);
     }
 }

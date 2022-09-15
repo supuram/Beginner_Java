@@ -4,7 +4,7 @@ public class arraylist_1
 {
     public static void main(String[] args)
     {
-        ArrayList<Integer> list=new ArrayList<Integer>();      /*ArrayList can only store objects.
+        ArrayList<Integer> list=new ArrayList<>();      /*ArrayList can only store objects.
         It cannot store primitive types*/
 
         System.out.println(list);

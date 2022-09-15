@@ -1,7 +1,9 @@
-/* Inorder Traversal means first print the left subtree, then print root and then the right subtree */
-public class chk
+package Tree;
+/*  Say our tree is {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1}.
+So if level =3 is given as input, output will be - 4,5,6
+ */
+public class Print_any_level
 {
-    static int ct=0;
     static class Node
     {
         int data;
@@ -29,20 +31,22 @@ public class chk
             return newNode;
         }
     }
-    public static void inorder(Node root)
+    public static void levelorder(Node root,int level)
     {
         if(root==null)
             return;
-        ct++;
-        inorder(root.left);
-        inorder(root.right);
+        if(level==1)
+            System.out.print(root.data+" ");
+        else if(level>1) {
+            levelorder(root.left,level-1);
+            levelorder(root.right,level-1);
+        }
     }
     public static void main(String[] args)
     {
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        inorder(root);
-        System.out.println("Total number of nodes = "+ct);
+        levelorder(root,3);
     }
 }

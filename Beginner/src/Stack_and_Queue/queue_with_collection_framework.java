@@ -11,9 +11,14 @@ public class queue_with_collection_framework
         q.add(3);
         q.add(4);
         q.add(5);
+        System.out.print("Our Queue = "+q);
+        q.poll();
+        System.out.println();
+        System.out.print("Our Queue = "+q);
+        System.out.println();
         while(!q.isEmpty())
         {
-            System.out.println(q.peek());
+            System.out.print(q.peek()+" ");
             q.remove();
         }
         Queue<Integer> q1=new ArrayDeque<>();  //for circular queue
@@ -24,7 +29,7 @@ public class queue_with_collection_framework
         q1.add(10);
         while(!q1.isEmpty())
         {
-            System.out.println(q1.peek());
+            System.out.print(q1.peek()+" ");
             q1.remove();
         }
     }
