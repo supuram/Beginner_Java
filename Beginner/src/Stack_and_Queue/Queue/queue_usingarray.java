@@ -1,4 +1,4 @@
-package Stack_and_Queue;
+package Stack_and_Queue.Queue;
 public class queue_usingarray
 {
     int[] arr;

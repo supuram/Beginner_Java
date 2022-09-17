@@ -1,4 +1,4 @@
-package Stack_and_Queue;
+package Stack_and_Queue.Queue;
 import java.util.*;
 public class queue_with_collection_framework
 {

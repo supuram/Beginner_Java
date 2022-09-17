@@ -1,7 +1,6 @@
 package Tree;
 public class Sum_of_Nodes
 {
-    static int sum=0;
     static class Node
     {
         int data;
@@ -29,21 +28,20 @@ public class Sum_of_Nodes
             return newNode;
         }
     }
-    public static int count(Node root)
+    public static int sum(Node root)
     {
         if(root==null)
-            return;
-        int a=count(root.left);
-        count(root.right);
-        System.out.println(a);
-        return a;
+            return 0;
+        int left=sum(root.left);
+        int right=sum(root.right);
+        //System.out.print(root.data+" "+left+" "+right+",");
+        return left+right+root.data;
     }
     public static void main(String[] args)
     {
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        count(root);
-        System.out.println("Total number of nodes = "+sum);
+        System.out.println("Sum of all the nodes = "+sum(root));
     }
 }
