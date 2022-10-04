@@ -14,10 +14,6 @@ public class odd_even
     {
         int data;
         Node next;
-        Node()
-        {
-
-        }
         Node(int data)
         {
             this.data=data;
@@ -57,44 +53,50 @@ public class odd_even
     }
     public void oddeven()
     {
-        Node currNode=head;
-        while(currNode!=null)
+        //assuming head is even
+        Node evenNode=head.next,currNode1=head;
+        while(evenNode!=null)
         {
-            if(currNode.data % 2 == 0 && currNode.next.data % 2 ==1)
+            //System.out.print(currNode1.data+"/");
+            if(evenNode.data%2==0)
             {
-                Node even_currNode=currNode;
-                Node odd_currNode=currNode.next;
-                currNode=currNode.next;
-                while(currNode.data % 2 !=0)
-                {
-                    currNode=currNode.next;
-                }
-                even_currNode.next=currNode;
-                even_currNode=even_currNode.next;
-                currNode=currNode.next;
+                System.out.print(currNode1.data+",");
+                currNode1.next=evenNode;
+                currNode1=currNode1.next;
             }
+            evenNode=evenNode.next;
         }
-        /*int ct_e=0,ct_o=0;
-        Node currNode=head;
-        while(currNode.data % 2 != 0)
+        again(currNode1);
+        //currNode1.next=null;
+        /*System.out.println();
+        Node oddNode=head.next;
+        while(oddNode!=null)
         {
-            //System.out.print(currNode.data+" ");
-            currNode=currNode.next;
-        }
-        while(even[ct_e]!=null)
-        {
-            System.out.print(even[ct_e].data+" ");
-            ct_e++;
-            currNode.next=even[ct_e];
-            currNode=currNode.next;
-        }
-        while(even[ct_o]!=null)
-        {
-            System.out.print(odd[ct_o].data+" ");
-            currNode.next=odd[ct_o];
-            currNode=currNode.next;
-            ct_o++;
+            //System.out.print(currNode1.data+";");
+            if(oddNode.data%2==1)
+            {
+                System.out.print(currNode1.data+":");
+                currNode1.next=oddNode;
+                currNode1=currNode1.next;
+                System.out.print(currNode1.data+":");
+            }
+            oddNode=oddNode.next;
         }*/
+    }
+    public void again(Node currNode1)
+    {
+        Node oddNode=head;
+        while(oddNode!=null)
+        {
+            //System.out.print(currNode1.data+"/");
+            if(oddNode.data%2==1)
+            {
+                //System.out.print(currNode1.data+",");
+                currNode1.next=oddNode;
+                currNode1=currNode1.next;
+            }
+            oddNode=oddNode.next;
+        }
     }
     public static void main(String[] args)
     {
@@ -104,8 +106,10 @@ public class odd_even
         list.addFirst(3);
         list.addFirst(4);
         list.addFirst(5);
+        list.addFirst(6);
         list.printList();
         list.oddeven();
+        System.out.println();
         list.printList();
         System.out.println(list.getSize());
     }

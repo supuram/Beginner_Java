@@ -36,7 +36,7 @@ public class stack_witharraylist
         it assumes that you might have made a mistake (i.e. that your intention was to access an instance
         variable), so it warns about it.
         */
-        stack_witharraylist.push(1);
+        stack_witharraylist.push(77);
         stack_witharraylist.push(2);
         stack_witharraylist.push(3);
         stack_witharraylist.push(4);
