@@ -1,7 +1,7 @@
+package Tree;
 import java.util.ArrayList;
-public class chk
+public class min_dist_nodes
 {
-    // Time complexity = O(n)
     static class Node
     {
         int data;
@@ -33,61 +33,27 @@ public class chk
     {
         if(root == null)
         {
-            System.out.print("false"+" ");
             return false;
         }
         path.add(root);
         if(root.data == n)
         {
-            System.out.println("true");
             return true;
         }
-
-        System.out.print(root.data+" ");
-        boolean left = getpath(root.left, n, path);
-        System.out.print("["+left+","+root.data+"]"+" ");
-        boolean right = getpath(root.right, n, path);
-        System.out.print("{"+right+","+root.data+"}"+" ");
-
-        if(left || right)
+        if(getpath(root.left, n, path) || getpath(root.right, n, path))
         {
-            System.out.println("(true)");
             return true;
         }
-
-        int j=0;
-        for(;j<path.size();j++)
-        {
-            System.out.print("("+path.get(j).data+")"+" ");
-        }
-
         path.remove(path.size()-1);
         return false;
     }
-    public static Node lca(Node root, int n1, int n2)
+    public static int min(Node root, int n1, int n2)
     {
         ArrayList<Node> path1 = new ArrayList<>();
         ArrayList<Node> path2 = new ArrayList<>();
-        getpath(root, n1, path1);
-        System.out.println();
-        getpath(root, n2, path2);
-        System.out.println();
+        getpath(root,n1,path1);
+        getpath(root,n2,path2);
 
-        // Printing the path to better understand the code
-        int j=0;
-        for(;j<path1.size();j++)
-        {
-            System.out.print(path1.get(j).data+" ");
-        }
-        System.out.println();
-        j=0;
-        for(;j<path2.size();j++)
-        {
-            System.out.print(path2.get(j).data+" ");
-        }
-        System.out.println();
-
-        // Finding the LCA
         int i=0;
         for(;i<path1.size() && i<path2.size();i++)
         {
@@ -96,7 +62,27 @@ public class chk
                 break;
             }
         }
-        return path1.get(i-1);
+
+        int j=i-1,ct1=0;
+        for(;j<path1.size();j++)
+        {
+            ct1++;
+            if(path1.get(j).data == n1)
+            {
+                break;
+            }
+        }
+
+        j=i-1;
+        for(;j<path2.size();j++)
+        {
+            ct1++;
+            if(path2.get(j).data == n2)
+            {
+                break;
+            }
+        }
+        return ct1-2;
     }
     public static void main(String[] args)
     {
@@ -106,11 +92,11 @@ public class chk
                                   2   3
                                  / \   \
                                 4   5   6
-          Here the lowest common ancestor (lca) of 4 and 5 is 2. Similarly lca of 4 and 6 is 1.
+          Minimum Distance between two nodes 4 and 6 is 4, between 2 and 6 is 3 etc.
          */
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        System.out.println("LCA = "+lca(root,4,5).data);
+        System.out.println(min(root, 2,3));
     }
 }

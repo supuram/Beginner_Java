@@ -1,6 +1,5 @@
 package Tree;
-/* Inorder Traversal means first print the left subtree, then print root and then the right subtree */
-public class Inorder_Traversal_3
+public class kth_level
 {
     static class Node
     {
@@ -29,26 +28,23 @@ public class Inorder_Traversal_3
             return newNode;
         }
     }
-    public static void inorder(Node root)
+    public static void kthlevel(Node root, int level, int k)
     {
         if(root==null)
             return;
-        inorder(root.left);
-        System.out.print(root.data+" ");
-        inorder(root.right);
+        if(level == k)
+        {
+            System.out.print(root.data+" ");
+            return;
+        }
+        kthlevel(root.left, level+1, 3);
+        kthlevel(root.right, level+1, 3);
     }
     public static void main(String[] args)
     {
-        /*
-                                    1
-                                   /  \
-                                  2    3
-                                 / \     \
-                                4   5     6
-         */
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        inorder(root);
+        kthlevel(root,1,3);
     }
 }

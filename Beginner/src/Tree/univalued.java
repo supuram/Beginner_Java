@@ -1,6 +1,5 @@
 package Tree;
-/* Inorder Traversal means first print the left subtree, then print root and then the right subtree */
-public class Inorder_Traversal_3
+public class univalued
 {
     static class Node
     {
@@ -29,26 +28,39 @@ public class Inorder_Traversal_3
             return newNode;
         }
     }
-    public static void inorder(Node root)
+    public static boolean uni(Node root)
     {
-        if(root==null)
-            return;
-        inorder(root.left);
-        System.out.print(root.data+" ");
-        inorder(root.right);
+        if(root == null)
+        {
+            return true;
+        }
+        if(root.left != null && root.data != root.left.data)
+        {
+            return false;
+        }
+        if(root.right != null && root.data != root.right.data)
+        {
+            return false;
+        }
+        boolean a= uni(root.left);
+        boolean b= uni(root.right);
+        boolean c= a && b;
+        System.out.print(a+" "+b+" "+c+",");
+        return c;
     }
     public static void main(String[] args)
     {
         /*
                                     1
-                                   /  \
-                                  2    3
-                                 / \     \
-                                4   5     6
+                                   / \
+                                  1   1
+                                 / \ / \
+                                1  1 1  1
+             This will return true
          */
-        int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int[] nodes={1,1,1,-1,-1,1,-1,-1,1,1,-1,-1,1,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        inorder(root);
+        System.out.print(uni(root));
     }
 }

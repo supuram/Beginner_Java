@@ -1,5 +1,6 @@
+package Tree;
 import java.util.ArrayList;
-public class chk
+public class lowest_common_ancestor
 {
     // Time complexity = O(n)
     static class Node
@@ -111,6 +112,6 @@ public class chk
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        System.out.println("LCA = "+lca(root,4,5).data);
+        System.out.println("LCA = "+lca(root,2,5).data);
     }
 }

@@ -76,7 +76,6 @@ public class top_view
                                  / \ / \
                                 4   56  7
           Here the top view will be 4-2-1-3-7.
-
          */
         Node root=new Node(1);
         root.left=new Node(2);
