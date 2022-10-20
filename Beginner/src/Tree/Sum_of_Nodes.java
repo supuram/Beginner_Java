@@ -34,7 +34,7 @@ public class Sum_of_Nodes
             return 0;
         int left=sum(root.left);
         int right=sum(root.right);
-        //System.out.print(root.data+" "+left+" "+right+",");
+        System.out.print(root.data+" "+left+" "+right+",");
         return left+right+root.data;
     }
     public static void main(String[] args)
@@ -42,6 +42,6 @@ public class Sum_of_Nodes
         int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        System.out.println("Sum of all the nodes = "+sum(root));
+        System.out.print("Sum of all the nodes = "+sum(root));
     }
 }

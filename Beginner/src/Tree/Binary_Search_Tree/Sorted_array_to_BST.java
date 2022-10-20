@@ -20,7 +20,7 @@ public class Sorted_array_to_BST
         }
         int mid = (st + end)/2;
         Node root = new Node(arr[mid]);
-        System.out.print("["+root.data+","+mid+"]"+" ");
+        System.out.print("["+root.data+","+mid+","+st+","+end+"]"+" ");
         root.left = insert(arr,st,mid-1);
         root.right = insert(arr,mid+1,end);
         System.out.print(mid+":");
