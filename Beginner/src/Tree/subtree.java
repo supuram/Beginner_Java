@@ -44,15 +44,17 @@ public class subtree
         {
             return false;
         }
+        boolean left=isSubtree(root.left,subroot);
+        boolean right=isSubtree(root.right,subroot);
         if(root.data == subroot.data)
         {
             if(isIdentical(root,subroot))
             {
+                System.out.print("["+left+";"+right+":"+root.data+":"+subroot.data+"]"+" ");
                 return true;
             }
         }
-        boolean left=isSubtree(root.left,subroot);
-        boolean right=isSubtree(root.right,subroot);
+        System.out.print("["+left+";"+right+":"+root.data+":"+subroot.data+"]"+" ");
         return left || right;
     }
     public static void main(String[] args)

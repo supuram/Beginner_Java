@@ -8,8 +8,9 @@ public class recursion_array1
         {
             return;
         }
-        //sum=sum+arr[n-1];
+        sum=sum+arr[n-1];
         array(arr,n-1);
+        System.out.println(n+" "+sum+" "+arr[n-1]);
         sum=sum+arr[n-1];
         System.out.println(sum);
     }

@@ -36,8 +36,15 @@ public class linkedlist_addin_reverse
             sum2=sum2+l2.get(i)*(int)Math.pow(10,i);
         }
         sum=sum1+sum2;
+        int newsum = sum;
         System.out.println(sum);
-        for(i=0;i<3;i++)
+        int size = 0;
+        while(newsum  != 0)
+        {
+            size = size + 1;
+            newsum = newsum/10;
+        }
+        for(i=0;i<size;i++)
         {
             int n=sum%10;
             System.out.println(n);

@@ -1,10 +1,7 @@
 package Tree;
 import java.util.LinkedList;
 import java.util.Queue;
-/* Levelorder Traversal means -
-Say our tree is {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1}.
-So it will be printed as - 1  2,3   4,5,6
- */
+
 public class Count_nodes
 {
     static class Node
@@ -36,9 +33,9 @@ public class Count_nodes
     }
     public static void levelorder(Node root)
     {
-        if(root==null)
+        if(root == null)
             return;
-        Queue<Node> q=new LinkedList<>();
+        Queue<Node> q = new LinkedList<>();
         q.add(root);
         q.add(null);
         int ct=1;

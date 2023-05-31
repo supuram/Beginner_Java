@@ -39,18 +39,21 @@ public class recursive_search
         }
         System.out.println("NULL");
     }
-    public int search(int srh,int i,Node head)
-    {   //this is not giving proper results
-        if(head==null)
+    public int helper(Node head, int key)
+    {
+        if(head == null)
             return -1;
-        if(head.data==srh)
-        {
-            return i;
-        }
-        System.out.print(head.data+" ");
-        head=head.next;
-        search(head.data,i+1,head);
-        return i;
+        if(head.data == key)
+            return 0;
+        int idx = helper(head.next, key);
+        if(idx == -1)
+            return -1;
+        return idx+1;
+    }
+
+    public int recSearch(int key)
+    {
+        return helper(head,key);
     }
     public static void main(String[] args)
     {
@@ -61,7 +64,7 @@ public class recursive_search
         list.addFirst(4);
         list.addFirst(5);
         list.printList();
-        System.out.println(list.search(2,1,head));  //search 4
+        System.out.println(list.recSearch(2));
         list.printList();
     }
 }

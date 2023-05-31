@@ -29,8 +29,17 @@ public class queue_with_collection_framework
         q1.add(10);
         while(!q1.isEmpty())
         {
-            System.out.print(q1.peek()+" ");
-            q1.remove();
+            System.out.print(q1.remove()+" ");
         }
     }
 }
+
+/*
+The q.peek() method retrieves, but does not remove, the head of the queue. If the queue is empty, it returns
+null.
+The q.poll() method retrieves and removes the head of the queue. If the queue is empty, it returns null.
+The q.remove() method also retrieves and removes the head of the queue. However, unlike q.poll(), if the queue
+is empty, it throws an exception instead of returning null.
+
+
+ */

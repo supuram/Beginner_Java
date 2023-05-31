@@ -2,7 +2,7 @@ package Linked_List;
 import java.util.*;
 public class linkedlist_nth_node_from_last
 {
-    public static void nthnode(LinkedList list,int k)
+    public static void nthnode(LinkedList<Integer> list,int k)
     {
         int size=list.size();
         int len=size-k;

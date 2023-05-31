@@ -54,7 +54,7 @@ public class add_inmiddle_dll
             prevNode=prevNode.next;
             i++;
         }
-        Node currNode=prevNode.next.next;
+        Node currNode=prevNode.next;
         prevNode.next=newNode;
         newNode.prev=prevNode;
         newNode.next=currNode;

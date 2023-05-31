@@ -31,12 +31,14 @@ public class height_of_tree
     }
     public static int height(Node root)
     {
-        if(root==null)
+        if(root == null)
         {
+            System.out.print(0+":");
             return 0;
         }
-        int lh=height(root.left);
-        int rh=height(root.right);
+        int lh = height(root.left);
+        int rh = height(root.right);
+        System.out.print(Math.max(lh,rh)+1+","+lh+","+rh+"] ");
         return Math.max(lh,rh)+1;
     }
     public static void main(String[] args)

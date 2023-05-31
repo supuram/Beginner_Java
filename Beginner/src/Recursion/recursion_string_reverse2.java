@@ -9,7 +9,7 @@ public class recursion_string_reverse2
             return s;
         }
         System.out.println(len+" "+s+"  "+s.charAt(0));
-        //return s.charAt(0)+reverse(s.substring(1,len));
+        //return reverse(s.substring(1,len))+s.charAt(0);
         return "Y"+reverse(s.substring(1,len))+s.charAt(0)+"Z";
     }
     public static void main(String[] args)

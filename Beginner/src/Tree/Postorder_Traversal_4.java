@@ -39,7 +39,23 @@ public class Postorder_Traversal_4
     }
     public static void main(String[] args)
     {
-        int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        /*
+                                    1
+                             /              \
+                           2                 14
+                         /  \               /   \
+                       4    10             20     3
+                     /  \    /\                  /   \
+                   7     9  11 12               6      5
+                  \       \                      \     /  \
+                   8       13                    19   15   16
+                                                           /  \
+                                                          17   18
+                                                            \   /
+                                                            20  21
+         */
+
+        int[] nodes = {1,2,4,7,-1,8,-1,-1,9,-1,13,-1,-1,10,11,-1,-1,12,-1,-1,14,20,-1,-1,3,6,-1,19,-1,-1,5,15,-1,-1,16,17,-1,20,-1,-1,18,21,-1,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
         postorder(root);

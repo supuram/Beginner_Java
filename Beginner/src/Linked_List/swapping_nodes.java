@@ -102,7 +102,7 @@ public class swapping_nodes
         list.addFirst(9);
         list.print();
         System.out.println();
-        list.swap(1,5);
+        list.swap(2,5);
         System.out.println();
         list.print();
     }
