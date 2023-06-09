@@ -8,9 +8,16 @@ public class Basics
      */
     public static void main(String[] args)
     {
-        HashMap<String,Integer> map=new HashMap<>();
-        map.put("India",200);
-        map.put("China",150);
-        System.out.print(map.get("India"));
+        HashMap<String,Integer> map = new HashMap<>();
+        map.put("India", 200);
+        map.put("China", 150);
+        map.put("Nepal", 10);
+        System.out.println(map.get("India"));
+        System.out.println(map);
+        System.out.println(map.containsKey("China"));
+        System.out.println(map.remove("China"));
+        System.out.println(map);
+        System.out.println("Size of hashmap is "+map.size());
+        System.out.println(map.isEmpty());
     }
 }

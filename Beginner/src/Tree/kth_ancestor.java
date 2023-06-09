@@ -40,7 +40,7 @@ public class kth_ancestor
         }
         int left = kth(root.left,n,k);
         int right = kth(root.right,n,k);
-        System.out.print("("+left+" "+right+")");
+        System.out.print("("+left+","+right+","+root.data+")");
 
         if(left == -1 && right == -1)
         {
@@ -57,16 +57,24 @@ public class kth_ancestor
     public static void main(String[] args)
     {
         /*
-                                    1
-                                   / \
-                                  2   3
-                                 / \   \
-                                4   5   6
-          If node = 5, k = 2, it means find the 2nd ancestor of 5. The answer will be 1.
+                                     1
+                             /              \
+                           2                 14
+                         /  \               /   \
+                       4    10             20     3
+                     /  \    /\                  /   \
+                   7     9  11 12               6      5
+                  \       \                      \     /  \
+                   8       13                    19   15   16
+                                                           /  \
+                                                          17   18
+                                                            \   /
+                                                            20  21
+          If node = 5, k = 2, it means find the 2nd ancestor of 5. The answer will be 14.
          */
-        int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int[] nodes = {1,2,4,7,-1,8,-1,-1,9,-1,13,-1,-1,10,11,-1,-1,12,-1,-1,14,20,-1,-1,3,6,-1,19,-1,-1,5,15,-1,-1,16,17,-1,20,-1,-1,18,21,-1,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        System.out.println(kth(root, 5,2));
+        System.out.println(kth(root, 21,6));
     }
 }

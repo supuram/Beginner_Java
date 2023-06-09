@@ -32,20 +32,23 @@ public class BT_Tilt
     {
         if(root == null)
         {
+            System.out.print("[0"+"]");
             return 0;
         }
         int l = tilt(root.left);
         int r = tilt(root.right);
         int ab = Math.abs(sum(root.left) - sum(root.right));
-        System.out.print(ab+":"+l+":"+r+" ");
+        System.out.print("["+ab+":"+l+":"+r+":"+root.data+"]");
         return ab + l + r;
     }
     public static int sum(Node root)
     {
         if(root == null)
         {
+            //System.out.print("(0"+")");
             return 0;
         }
+        //System.out.print("("+root.data+":"+root.left+":"+root.right+")");
         return root.data + sum(root.left) + sum(root.right);
     }
     public static void main(String[] args)

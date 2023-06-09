@@ -39,7 +39,7 @@ public class Sum_of_Nodes
     }
     public static void main(String[] args)
     {
-        int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int[] nodes={21,7,1,3,-1,-1,5,-1,-1,4,-1,-1,14,2,-1,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
         System.out.print("Sum of all the nodes = "+sum(root));

@@ -1,4 +1,3 @@
-import java.lang.Math;
 public class chk
 {
     /* Diameter of a tree is defined as the number of nodes in the longest path between two leaves
@@ -49,36 +48,21 @@ public class chk
             return newNode;
         }
     }
-    public static int height(Node root)
-    {
-        if(root==null)
-        {
-            return 0;
-        }
-        int lh=height(root.left);
-        int rh=height(root.right);
-        return Math.max(lh,rh)+1;
-    }
-    public static int diameter(Node root)
+    public static int sum(Node root)
     {
         if(root == null)
         {
-            System.out.print(0+":");
+            System.out.print("(0"+")");
             return 0;
         }
-        int ld=diameter(root.left);
-        int rd=diameter(root.right);
-        int lh=height(root.left);
-        int rh=height(root.right);
-        System.out.println("["+ld+","+rd+","+lh+","+rh+","+root.data+"]");
-        int self=lh+rh+1;
-        return Math.max(Math.max(ld,rd),self);
+        System.out.print("("+root.data+":"+root.left+":"+root.right+")");
+        return root.data + sum(root.left) + sum(root.right);
     }
     public static void main(String[] args)
     {
-        int[] nodes={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        int[] nodes={21,7,1,3,-1,-1,5,-1,-1,4,-1,-1,14,2,-1,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        System.out.print(diameter(root));
+        System.out.print(sum(root));
     }
 }
