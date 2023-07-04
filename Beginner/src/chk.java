@@ -1,68 +1,49 @@
 public class chk
 {
-    /* Diameter of a tree is defined as the number of nodes in the longest path between two leaves
-                                1
-                               /  \
-                              2    3
-                             /  \    \
-                            4    5    6
-                           /
-                          7
-      Here the longest diameter is 7-4-2-1-3-6.
+    public static void printArr(int[] arr)
+    {
+        for(int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+    public static void QS(int[] arr, int si, int ei)
+    {
+        if(si >= ei)
+        {
+            return;
+        }
+        int pidx = partition(arr, si, ei);
+        //System.out.println(ei+","+si);
+        printArr(arr);
+        System.out.println(si);
+        QS(arr, si, pidx - 1);  // left part
+        QS(arr, pidx + 1, ei);  // right part
+    }
 
-                                1
-                               /  \
-                              2    3
-                             /  \
-                            4    5
-                           /      \
-                          7        8
-                         /          \
-                        9            10
-       Here the longest diameter is 9-7-4-2-5-8-10.
-     */
-    static class Node
+    public static int partition(int[] arr, int si, int ei)
     {
-        int data;
-        Node left,right;
-        Node(int data)
+        int pivot = arr[ei];
+        int i = si - 1;  // to make place for elements smaller than pivot
+        for(int j = si; j < ei; j++)
         {
-            this.data=data;
-            this.left=null;
-            this.right=null;
-        }
-    }
-    static class BinaryTree
-    {
-        int idx=-1;
-        public Node buildTree(int[] nodes)
-        {
-            idx++;
-            if(nodes[idx]==-1)
+            if(arr[j] <= pivot)
             {
-                return null;
+                i++;
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
             }
-            Node newNode=new Node(nodes[idx]);
-            newNode.left=buildTree(nodes);
-            newNode.right=buildTree(nodes);
-            return newNode;
         }
-    }
-    public static int sum(Node root)
-    {
-        if(root == null)
-        {
-            System.out.print("(0"+")");
-            return 0;
-        }
-        System.out.print("("+root.data+":"+root.left+":"+root.right+")");
-        return root.data + sum(root.left) + sum(root.right);
+        i++;
+        arr[ei] = arr[i];
+        arr[i] = pivot;
+        return i;
     }
     public static void main(String[] args)
     {
-        int[] nodes={21,7,1,3,-1,-1,5,-1,-1,4,-1,-1,14,2,-1,-1,6,-1,-1};
-        BinaryTree tree=new BinaryTree();
-        Node root=tree.buildTree(nodes);
-        System.out.print(sum(root));
+        int[] arr = {6,3,9,8,2,5};
+        QS(arr, 0, arr.length - 1);
+        printArr(arr);
     }
 }

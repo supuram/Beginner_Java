@@ -6,7 +6,7 @@ public class Sixth_OrderBy {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/giraffe";
         String username = "root";
-        String password = "Kedarkamod@248";
+        String password = "pass";
 
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
             String query = "ALTER TABLE student ORDER BY Student_ID ASC";

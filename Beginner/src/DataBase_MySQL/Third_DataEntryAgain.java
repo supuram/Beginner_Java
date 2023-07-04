@@ -6,7 +6,7 @@ public class Third_DataEntryAgain {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/giraffe";
         String user = "root";
-        String password = "Kedarkamod@248";
+        String password = "pass";
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String query = "INSERT INTO student (Student_ID, name, major, GPA, Hobby) VALUES (?,?,?,?,?)";
